@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <DxDataGrid
+  <div id="app-container">
+    <DxDataGrid id="dataGrid"
       :data-source="employees"
       key-expr="EmployeeID"
       :allow-column-resizing="true"
@@ -8,7 +8,7 @@
       :allow-column-reordering="true"
       @selection-changed="selectEmployee"
       @exporting="exportGrid">
-      <DxColumn data-field="FullName">
+      <DxColumn data-field="FullName" :fixed="true">
         <DxRequiredRule />
       </DxColumn>
       <DxColumn data-field="Position">
@@ -17,13 +17,13 @@
       <DxColumn
         data-field="BirthDate"
         data-type="date"
-        :width="150">
+        :width="100">
         <DxRequiredRule />
       </DxColumn>
       <DxColumn
         data-field="HireDate"
         data-type="date"
-        :width="150">
+        :width="100">
         <DxRequiredRule />
       </DxColumn>
       <DxColumn data-field="City" />
@@ -37,14 +37,14 @@
       <DxColumn data-field="HomePhone" />
       <DxColumn data-field="PostalCode" :visible="false" />
       <DxColumnChooser :enabled="true" />
+      <DxColumnFixing :enabled="true" />
       <DxFilterRow :visible="true" />
       <DxSearchPanel :visible="true" />
       <DxGroupPanel :visible="true" />
-      <DxSelection mode="multiple" />
+      <DxSelection mode="single" />
       <DxSummary>
-        <DxTotalItem
+        <DxGroupItem
           summary-type="count"
-          show-in-column="HomePhone"
         />
       </DxSummary>
       <DxEditing
@@ -77,12 +77,13 @@ import {
   DxColumn,
   DxRequiredRule,
   DxColumnChooser,
+  DxColumnFixing,
   DxFilterRow,
   DxSearchPanel,
   DxGroupPanel,
   DxSelection,
   DxSummary,
-  DxTotalItem,
+  DxGroupItem,
   DxEditing,
   DxMasterDetail,
   DxExport
@@ -100,12 +101,13 @@ export default {
     DxColumn,
     DxRequiredRule,
     DxColumnChooser,
+    DxColumnFixing,
     DxFilterRow,
     DxSearchPanel,
     DxGroupPanel,
     DxSelection,
     DxSummary,
-    DxTotalItem,
+    DxGroupItem,
     DxEditing,
     DxMasterDetail,
     DxExport
@@ -147,13 +149,24 @@ export default {
   float: left;
   padding: 0 20px 20px 0;
 }
-  
+
 .employee-notes {
   text-align: justify;
   white-space: normal;
 }
 
+#dataGrid {
+  height: 500px;
+}
+
+#app-container {
+  width: 900px;
+  position: relative;
+}
+
 #selected-employee {
-  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 </style>

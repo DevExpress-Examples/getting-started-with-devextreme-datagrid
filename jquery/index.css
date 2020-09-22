@@ -10,9 +10,16 @@
 }
 
 #dataGrid {
-  height: 540px;
+  height: 500px;
+}
+
+#app-container {
+  width: 900px;
+  position: relative;
 }
 
 #selected-employee {
-  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 }

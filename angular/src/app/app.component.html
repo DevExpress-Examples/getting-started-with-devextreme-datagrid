@@ -1,66 +1,68 @@
-<dx-data-grid
-  [dataSource]="employees"
-  keyExpr="EmployeeID"
-  [allowColumnResizing]="true"
-  [columnAutoWidth]="true"
-  [allowColumnReordering]="true"
-  (onSelectionChanged)="selectEmployee($event)"
-  (onExporting)="exportGrid($event)">
-  <dxi-column dataField="FullName">
-    <dxi-validation-rule type="required"></dxi-validation-rule>
-  </dxi-column>
-  <dxi-column dataField="Position">
-    <dxi-validation-rule type="required"></dxi-validation-rule>
-  </dxi-column>
-  <dxi-column
-    dataField="BirthDate"
-    dataType="date"
-    [width]="150">
-    <dxi-validation-rule type="required"></dxi-validation-rule>
-  </dxi-column>
-  <dxi-column
-    dataField="HireDate"
-    dataType="date"
-    [width]="150">
-    <dxi-validation-rule type="required"></dxi-validation-rule>
-  </dxi-column>
-  <dxi-column dataField="City"></dxi-column>
-  <dxi-column
-    dataField="Country"
-    [groupIndex]="0"
-    sortOrder="asc">
-    <dxi-validation-rule type="required"></dxi-validation-rule>
-  </dxi-column>
-  <dxi-column dataField="Address"></dxi-column>
-  <dxi-column dataField="HomePhone"></dxi-column>
-  <dxi-column dataField="PostalCode" [visible]="false"></dxi-column>
-  <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
-  <dxo-filter-row [visible]="true"></dxo-filter-row>
-  <dxo-search-panel [visible]="true"></dxo-search-panel>
-  <dxo-group-panel [visible]="true"></dxo-group-panel>
-  <dxo-selection mode="multiple"></dxo-selection>
-  <dxo-summary>
-    <dxi-total-item
-      summaryType="count"
-      showInColumn="HomePhone">
-    </dxi-total-item>
-  </dxo-summary>
-  <dxo-editing
-    mode="popup"
-    [allowUpdating]="true"
-    [allowDeleting]="true"
-    [allowAdding]="true">
-  </dxo-editing>
-  <dxo-master-detail
-    [enabled]="true"
-    [template]="'employee-info'">
-  </dxo-master-detail>
-  <div *dxTemplate="let employee of 'employee-info'">
-    <img class="employee-photo" [src]="employee.data.Photo">
-    <p class="employee-notes">{{ employee.data.Notes }}</p>
-  </div>
-  <dxo-export [enabled]="true"></dxo-export>
-</dx-data-grid>
-<p id="selected-employee" *ngIf="selectedEmployee">
-  Selected employee: {{ selectedEmployee.FullName }}
-</p>
+<div id="app-container">
+  <dx-data-grid id="dataGrid"
+    [dataSource]="employees"
+    keyExpr="EmployeeID"
+    [allowColumnResizing]="true"
+    [columnAutoWidth]="true"
+    [allowColumnReordering]="true"
+    (onSelectionChanged)="selectEmployee($event)"
+    (onExporting)="exportGrid($event)">
+    <dxi-column dataField="FullName" [fixed]="true">
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column dataField="Position">
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column
+      dataField="BirthDate"
+      dataType="date"
+      [width]="100">
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column
+      dataField="HireDate"
+      dataType="date"
+      [width]="100">
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column dataField="City"></dxi-column>
+    <dxi-column
+      dataField="Country"
+      [groupIndex]="0"
+      sortOrder="asc">
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column dataField="Address"></dxi-column>
+    <dxi-column dataField="HomePhone"></dxi-column>
+    <dxi-column dataField="PostalCode" [visible]="false"></dxi-column>
+    <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-search-panel [visible]="true"></dxo-search-panel>
+    <dxo-group-panel [visible]="true"></dxo-group-panel>
+    <dxo-selection mode="single"></dxo-selection>
+    <dxo-summary>
+      <dxi-group-item
+        summaryType="count">
+      </dxi-group-item>
+    </dxo-summary>
+    <dxo-editing
+      mode="popup"
+      [allowUpdating]="true"
+      [allowDeleting]="true"
+      [allowAdding]="true">
+    </dxo-editing>
+    <dxo-master-detail
+      [enabled]="true"
+      [template]="'employee-info'">
+    </dxo-master-detail>
+    <div *dxTemplate="let employee of 'employee-info'">
+      <img class="employee-photo" [src]="employee.data.Photo">
+      <p class="employee-notes">{{ employee.data.Notes }}</p>
+    </div>
+    <dxo-export [enabled]="true"></dxo-export>
+  </dx-data-grid>
+  <p id="selected-employee" *ngIf="selectedEmployee">
+    Selected employee: {{ selectedEmployee.FullName }}
+  </p>
+</div>

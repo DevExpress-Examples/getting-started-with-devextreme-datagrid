@@ -4,13 +4,17 @@ $(function() {
         keyExpr: "EmployeeID",
         allowColumnResizing: true,
         columnAutoWidth: true,
+        columnFixing: {
+            enabled: true
+        },
         allowColumnReordering: true,
         columnChooser: { enabled: true },
         columns: [{
             dataField: "FullName",
             validationRules: [{
                 type: "required"
-            }]
+            }],
+            fixed: true
         }, {
             dataField: "Position",
             validationRules: [{
@@ -19,14 +23,14 @@ $(function() {
         }, {
             dataField: "BirthDate", 
             dataType: "date",
-            width: 150,
+            width: 100,
             validationRules: [{
                 type: "required"
             }]
         }, {
             dataField: "HireDate", 
             dataType: "date",
-            width: 150,
+            width: 100,
             validationRules: [{
                 type: "required"
             }]
@@ -55,9 +59,8 @@ $(function() {
             });
         },
         summary: {
-            totalItems: [{
-                summaryType: "count",
-                showInColumn: "HomePhone"
+            groupItems: [{
+                summaryType: "count"
             }]
         },
         editing: {
