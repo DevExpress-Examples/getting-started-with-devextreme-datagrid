@@ -73,69 +73,67 @@ function App() {
 
   return (
     <div className="App">
-      <div id="app-container">
-        <DataGrid
-          id="dataGrid"
-          dataSource={employees}
-          keyExpr="EmployeeID"
-          allowColumnResizing={true}
-          columnAutoWidth={true}
-          allowColumnReordering={true}
-          onSelectionChanged={selectEmployee}
-          onExporting={exportGrid}>
-          <ColumnChooser enabled={true} />
-          <Column dataField="FullName">
-            <RequiredRule />
-          </Column>
-          <Column dataField="Position">
-            <RequiredRule />
-          </Column>
-          <Column
-            dataField="BirthDate"
-            dataType="date"
-            width={100}>
-            <RequiredRule />
-          </Column>
-          <Column
-            dataField="HireDate"
-            dataType="date"
-            width={100}>
-            <RequiredRule />
-          </Column>
-          <Column dataField="City" />
-          <Column
-            dataField="Country"
-            groupIndex={0}
-            sortOrder="asc">
-            <RequiredRule />
-          </Column>
-          <Column dataField="Address" />
-          <Column dataField="HomePhone" />
-          <Column dataField="PostalCode" visible={false} />
-          <ColumnFixing enabled={true} />
-          <FilterRow visible={true} />
-          <SearchPanel visible={true} />
-          <GroupPanel visible={true} />
-          <Selection mode="single" />
-          <Summary>
-            <GroupItem
-              summaryType="count"
-            />
-          </Summary>
-          <Editing
-            mode="popup"
-            allowUpdating={true}
-            allowDeleting={true}
-            allowAdding={true}
+      <DataGrid
+        id="dataGrid"
+        dataSource={employees}
+        keyExpr="EmployeeID"
+        allowColumnResizing={true}
+        columnAutoWidth={true}
+        allowColumnReordering={true}
+        onSelectionChanged={selectEmployee}
+        onExporting={exportGrid}>
+        <ColumnChooser enabled={true} />
+        <Column dataField="FullName">
+          <RequiredRule />
+        </Column>
+        <Column dataField="Position">
+          <RequiredRule />
+        </Column>
+        <Column
+          dataField="BirthDate"
+          dataType="date"
+          width={100}>
+          <RequiredRule />
+        </Column>
+        <Column
+          dataField="HireDate"
+          dataType="date"
+          width={100}>
+          <RequiredRule />
+        </Column>
+        <Column dataField="City" />
+        <Column
+          dataField="Country"
+          groupIndex={0}
+          sortOrder="asc">
+          <RequiredRule />
+        </Column>
+        <Column dataField="Address" />
+        <Column dataField="HomePhone" />
+        <Column dataField="PostalCode" visible={false} />
+        <ColumnFixing enabled={true} />
+        <FilterRow visible={true} />
+        <SearchPanel visible={true} />
+        <GroupPanel visible={true} />
+        <Selection mode="single" />
+        <Summary>
+          <GroupItem
+            summaryType="count"
           />
-          <MasterDetail
-            enabled={true}
-            component={DetailSection}
-          />
-          <Export enabled={true} />
-        </DataGrid>
-        <SelectedEmployee employee={selectedEmployee} />
-      </div>
+        </Summary>
+        <Editing
+          mode="popup"
+          allowUpdating={true}
+          allowDeleting={true}
+          allowAdding={true}
+        />
+        <MasterDetail
+          enabled={true}
+          component={DetailSection}
+        />
+        <Export enabled={true} />
+      </DataGrid>
+      <SelectedEmployee employee={selectedEmployee} />
     </div>
   );
 }
