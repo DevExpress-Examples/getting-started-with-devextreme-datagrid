@@ -8,7 +8,7 @@
         "node_modules/jszip/dist/jszip.min.js"
       ],
       "exceljs": [
-        "node_modules/exceljs/dist/exceljs.js"
+        "node_modules/exceljs/dist/exceljs.min.js"
       ]
     }
   },
