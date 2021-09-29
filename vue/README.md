@@ -1,4 +1,6 @@
-# getting-started-with-datagrid
+# Getting Started with DevExtreme Vue DataGrid
+
+This repository stores Vue source code for the [Getting Started with DataGrid](https://js.devexpress.com/Documentation/Guide/UI_Components/DataGrid/Getting_Started_with_DataGrid/) tutorial.
 
 ## Project setup
 ```

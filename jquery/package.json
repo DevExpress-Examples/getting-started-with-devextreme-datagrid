@@ -1,0 +1,17 @@
+{
+  "name": "dx-jquery",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server -c ./bs-config.json"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "htmlhint": "^0.11.0",
+    "lite-server": "^2.5.4"
+  },
+  "dependencies": {
+    "devextreme": "^20.2.5",
+    "jquery": "^3.5.1"
+  }
+}
