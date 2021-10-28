@@ -52,6 +52,21 @@
       [allowDeleting]="true"
       [allowAdding]="true">
     </dxo-editing>
+    <dxo-grouping [autoExpandAll]="expanded"></dxo-grouping>
+    <dxo-toolbar>
+        <dxi-item name="groupPanel"></dxi-item>
+        <dxi-item location="after">
+            <dx-button
+                [text]="expanded ? 'Collapse All' : 'Expand All'"
+                [width]="136"
+                (onClick)="expanded = !expanded">
+            </dx-button>
+        </dxi-item>
+        <dxi-item name="addRowButton" showText="always"></dxi-item>
+        <dxi-item name="exportButton"></dxi-item>
+        <dxi-item name="columnChooserButton"></dxi-item>
+        <dxi-item name="searchPanel"></dxi-item>
+    </dxo-toolbar>
     <dxo-master-detail
       [enabled]="true"
       [template]="'employee-info'">
@@ -61,6 +76,7 @@
       <p class="employee-notes">{{ employee.data.Notes }}</p>
     </div>
     <dxo-export [enabled]="true"></dxo-export>
+    
   </dx-data-grid>
   <p id="selected-employee" *ngIf="selectedEmployee">
     Selected employee: {{ selectedEmployee.FullName }}

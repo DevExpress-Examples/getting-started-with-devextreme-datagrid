@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import './App.css'
 
@@ -16,9 +15,13 @@ import {
   Summary,
   GroupItem,
   Editing,
+  Grouping,
+  Toolbar,
+  Item,
   MasterDetail,
   Export
 } from 'devextreme-react/data-grid';
+import { Button } from 'devextreme-react/button';
 import { employees } from './employees';
 import { Workbook } from 'exceljs';
 import saveAs from 'file-saver';
@@ -65,6 +68,7 @@ function exportGrid(e) {
 
 function App() {
   const [selectedEmployee, setSelectedEmployee] = useState();
+  const [expanded, setExpanded] = useState(true);
   const selectEmployee = (e) => {
     e.component.byKey(e.currentSelectedRowKeys[0]).done(employee => {
         setSelectedEmployee(employee);
@@ -127,6 +131,21 @@ function App() {
           allowDeleting={true}
           allowAdding={true}
         />
+        <Grouping autoExpandAll={expanded} />
+        <Toolbar>
+          <Item name="groupPanel" />
+          <Item location="after">
+            <Button
+                text={expanded ? 'Collapse All' : 'Expand All'}
+                width={136}
+                onClick={() => setExpanded(prevExpanded => !prevExpanded)}
+            />
+          </Item>
+          <Item name="addRowButton" showText="always" />
+          <Item name="exportButton" />
+          <Item name="columnChooserButton" />
+          <Item name="searchPanel" />
+        </Toolbar>
         <MasterDetail
           enabled={true}
           component={DetailSection}

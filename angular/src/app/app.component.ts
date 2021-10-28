@@ -10,9 +10,9 @@ import { exportDataGrid } from 'devextreme/excel_exporter';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Getting Started with DataGrid';
   employees: Employee[] = [];
   selectedEmployee: Employee;
+  expanded: Boolean = true;
 
   constructor(service: EmployeesService) {
     this.employees = service.getEmployees();

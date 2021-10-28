@@ -53,6 +53,21 @@
         :allow-adding="true"
         :allow-deleting="true"
       />
+      <DxGrouping :auto-expand-all="expanded" />
+      <DxToolbar>
+        <DxItem name="groupPanel" />
+        <DxItem location="after">
+          <DxButton
+            :text="expanded ? 'Collapse All' : 'Expand All'"
+            :width="136"
+            @click="expanded = !expanded"
+          />
+        </DxItem>
+        <DxItem name="addRowButton" show-text="always" />
+        <DxItem name="exportButton" />
+        <DxItem name="columnChooserButton" />
+        <DxItem name="searchPanel" />
+      </DxToolbar>
       <DxMasterDetail
         :enabled="true"
         template="employee-info"
@@ -85,14 +100,17 @@ import {
   DxSummary,
   DxGroupItem,
   DxEditing,
+  DxGrouping,
+  DxToolbar,
+  DxItem,
   DxMasterDetail,
   DxExport
 } from 'devextreme-vue/data-grid';
+import { DxButton } from 'devextreme-vue/button';
 import service from './employees.service';
 import { Workbook } from 'exceljs';
 import saveAs from 'file-saver';
 import { exportDataGrid } from 'devextreme/excel_exporter';
-
 
 export default {
   name: 'App',
@@ -109,16 +127,27 @@ export default {
     DxSummary,
     DxGroupItem,
     DxEditing,
+    DxGrouping,
+    DxToolbar,
+    DxItem,
     DxMasterDetail,
-    DxExport
+    DxExport,
+    DxButton
   },
   data() {
     return {
       employees: service.getEmployees(),
       selectedEmployee: undefined,
+      expanded: true
     }
   },
   methods: {
+    collapseAllClick(e) {
+      this.expanded = !this.expanded;
+      e.component.option({
+        text: this.expanded ? 'Collapse All' : 'Expand All',
+      });
+    },
     selectEmployee(e) {
       e.component.byKey(e.currentSelectedRowKeys[0]).done(employee => {
         if(employee) {
