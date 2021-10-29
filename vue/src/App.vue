@@ -142,12 +142,6 @@ export default {
     }
   },
   methods: {
-    collapseAllClick(e) {
-      this.expanded = !this.expanded;
-      e.component.option({
-        text: this.expanded ? 'Collapse All' : 'Expand All',
-      });
-    },
     selectEmployee(e) {
       e.component.byKey(e.currentSelectedRowKeys[0]).done(employee => {
         if(employee) {
