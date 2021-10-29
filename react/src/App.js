@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import 'devextreme/dist/css/dx.light.css';
 import './App.css'
 
@@ -69,11 +69,11 @@ function exportGrid(e) {
 function App() {
   const [selectedEmployee, setSelectedEmployee] = useState();
   const [expanded, setExpanded] = useState(true);
-  const selectEmployee = (e) => {
+  const selectEmployee = useCallback((e) => {
     e.component.byKey(e.currentSelectedRowKeys[0]).done(employee => {
         setSelectedEmployee(employee);
     });
-  }
+  }, []);
 
   return (
     <div className="App">
