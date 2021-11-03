@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "devextreme": "^21.2.2-beta",
-    "devextreme-vue": "^21.2.2-beta",
+    "devextreme": "^21.2.3",
+    "devextreme-vue": "^21.2.3",
     "exceljs": "^1.15.0",
     "file-saver": "^2.0.2",
     "vue": "^2.6.11"
@@ -23,7 +23,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11",
-    "devextreme-themebuilder": "^21.2.2-beta"
+    "devextreme-themebuilder": "^21.2.3"
   },
   "eslintConfig": {
     "root": true,
