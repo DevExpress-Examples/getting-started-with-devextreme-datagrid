@@ -26,6 +26,10 @@ import { employees } from './employees';
 import { Workbook } from 'exceljs';
 import saveAs from 'file-saver';
 import { exportDataGrid } from 'devextreme/excel_exporter';
+import { jsPDF } from 'jspdf';
+import { exportDataGrid as exportDataGridToPdf} from 'devextreme/pdf_exporter';
+
+const exportFormats = ['xlsx', 'pdf'];
 
 function SelectedEmployee(props) {
   if(props.employee) {
@@ -53,17 +57,28 @@ function DetailSection(props) {
 }
 
 function exportGrid(e) {
-  const workbook = new Workbook(); 
-  const worksheet = workbook.addWorksheet("Main sheet"); 
-  exportDataGrid({ 
+  if (e.format === 'xlsx') {
+    const workbook = new Workbook(); 
+    const worksheet = workbook.addWorksheet("Main sheet"); 
+    exportDataGrid({ 
       worksheet: worksheet, 
-      component: e.component
-  }).then(function() {
+      component: e.component,
+    }).then(function() {
       workbook.xlsx.writeBuffer().then(function(buffer) { 
-          saveAs(new Blob([buffer], { type: "application/octet-stream" }), "DataGrid.xlsx"); 
+        saveAs(new Blob([buffer], { type: "application/octet-stream" }), "DataGrid.xlsx"); 
       }); 
-  });
-  e.cancel = true; 
+    }); 
+    e.cancel = true;
+  } 
+  else if (e.format === 'pdf') {
+    const doc = new jsPDF();
+    exportDataGridToPdf({
+      jsPDFDocument: doc,
+      component: e.component,
+    }).then(() => {
+      doc.save('DataGrid.pdf');
+    });
+  }
 }
 
 function App() {
@@ -150,7 +165,7 @@ function App() {
           enabled={true}
           component={DetailSection}
         />
-        <Export enabled={true} />
+        <Export enabled={true} formats={exportFormats} />
       </DataGrid>
       <SelectedEmployee employee={selectedEmployee} />
     </div>

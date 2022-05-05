@@ -79,7 +79,10 @@
           <p class="employee-notes">{{ employee.data.Notes }}</p>
         </div>
       </template>
-      <DxExport :enabled="true" />
+      <DxExport
+        :enabled="true"
+        :formats="['xlsx', 'pdf']"
+      />
     </DxDataGrid>
     <p id="selected-employee" v-if="selectedEmployee">
       Selected employee: {{ selectedEmployee.FullName }}
@@ -112,6 +115,8 @@ import service from './employees.service';
 import { Workbook } from 'exceljs';
 import saveAs from 'file-saver';
 import { exportDataGrid } from 'devextreme/excel_exporter';
+import { jsPDF } from 'jspdf';
+import { exportDataGrid as exportDataGridToPdf} from 'devextreme/pdf_exporter';
 
 export default {
   name: 'App',
@@ -151,17 +156,28 @@ export default {
       });
     },
     exportGrid(e) {
-      const workbook = new Workbook(); 
-      const worksheet = workbook.addWorksheet("Main sheet"); 
-      exportDataGrid({ 
+      if (e.format === 'xlsx') {
+        const workbook = new Workbook(); 
+        const worksheet = workbook.addWorksheet("Main sheet"); 
+        exportDataGrid({ 
           worksheet: worksheet, 
-          component: e.component
-      }).then(function() {
+          component: e.component,
+        }).then(function() {
           workbook.xlsx.writeBuffer().then(function(buffer) { 
-              saveAs(new Blob([buffer], { type: "application/octet-stream" }), "DataGrid.xlsx"); 
+            saveAs(new Blob([buffer], { type: "application/octet-stream" }), "DataGrid.xlsx"); 
           }); 
-      }); 
-      e.cancel = true; 
+        }); 
+        e.cancel = true;
+      } 
+      else if (e.format === 'pdf') {
+        const doc = new jsPDF();
+        exportDataGridToPdf({
+          jsPDFDocument: doc,
+          component: e.component,
+        }).then(() => {
+          doc.save('DataGrid.pdf');
+        });
+      }
     }
   }
 }

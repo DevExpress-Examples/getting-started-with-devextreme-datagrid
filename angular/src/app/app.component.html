@@ -75,8 +75,11 @@
       <img class="employee-photo" [src]="employee.data.Photo">
       <p class="employee-notes">{{ employee.data.Notes }}</p>
     </div>
-    <dxo-export [enabled]="true"></dxo-export>
-    
+    <dxo-export 
+      [enabled]="true"
+      [formats]="['xlsx', 'pdf']"
+    >
+    </dxo-export>
   </dx-data-grid>
   <p id="selected-employee" *ngIf="selectedEmployee">
     Selected employee: {{ selectedEmployee.FullName }}
