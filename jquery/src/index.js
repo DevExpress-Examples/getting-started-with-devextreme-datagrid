@@ -1,3 +1,5 @@
+window.jsPDF = window.jspdf.jsPDF;
+
 $(function() {
     const dataGrid = $("#dataGrid").dxDataGrid({
         dataSource: employees,
