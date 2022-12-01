@@ -1,6 +1,6 @@
-# Getting Started with DevExtreme jQuery DataGrid
+# DevExtreme jQuery DataGrid - Getting Started 
 
-This repository stores jQuery source code for the [Getting Started with DataGrid](https://js.devexpress.com/Documentation/Guide/UI_Components/DataGrid/Getting_Started_with_DataGrid/) tutorial.
+This repository stores the code examples of the jQuery DataGrid component for the [Getting Started with DataGrid](https://js.devexpress.com/Documentation/Guide/UI_Components/DataGrid/Getting_Started_with_DataGrid/) tutorial. This tutorial shows how to add the DataGrid to a page, bind it to data, and configure its core features.
 
 ## Installation
 
@@ -21,6 +21,6 @@ http://localhost:3000/src/index.html
 
 You can learn more about jQuery API in the [jQuery documentation](https://api.jquery.com/).
 
-To get more help on DevExtreme submit an issue on [GitHub](https://github.com/DevExpress/devextreme/issues) or [Support Center](https://www.devexpress.com/Support/Center/Question/Create)
+To get more help on DevExtreme, submit an issue on [GitHub](https://github.com/DevExpress/devextreme/issues) or [Support Center](https://www.devexpress.com/Support/Center/Question/Create).
 
 

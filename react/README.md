@@ -1,6 +1,6 @@
-# Getting Started with DevExtreme React DataGrid
+# DevExtreme React DataGrid - Getting Started 
 
-This repository stores React source code for the [Getting Started with DataGrid](https://js.devexpress.com/Documentation/Guide/UI_Components/DataGrid/Getting_Started_with_DataGrid/) tutorial.
+This repository stores the code examples of the React DataGrid component for the [Getting Started with DataGrid](https://js.devexpress.com/Documentation/Guide/UI_Components/DataGrid/Getting_Started_with_DataGrid/) tutorial. This tutorial shows how to add the DataGrid to a page, bind it to data, and configure its core features.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
