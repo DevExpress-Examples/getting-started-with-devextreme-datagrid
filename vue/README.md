@@ -1,7 +1,3 @@
-# Getting Started with DevExtreme Vue DataGrid
-
-This repository stores Vue source code for the [Getting Started with DataGrid](https://js.devexpress.com/Documentation/Guide/UI_Components/DataGrid/Getting_Started_with_DataGrid/) tutorial.
-
 # DevExtreme Vue DataGrid - Getting Started 
 
 This repository stores the code examples of the Vue DataGrid component for the [Getting Started with DataGrid](https://js.devexpress.com/Documentation/Guide/UI_Components/DataGrid/Getting_Started_with_DataGrid/) tutorial. This tutorial shows how to add the DataGrid to a page, bind it to data, and configure its core features.
