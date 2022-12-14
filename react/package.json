@@ -6,8 +6,8 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "devextreme": "22.1.6",
-    "devextreme-react": "22.1.6",
+    "devextreme": "22.1.7",
+    "devextreme-react": "22.1.7",
     "exceljs": "^4.1.1",
     "file-saver": "^2.0.2",
     "jspdf": "^2.5.1",
@@ -37,6 +37,6 @@
     ]
   },
   "devDependencies": {
-    "devextreme-themebuilder": "22.1.6"
+    "devextreme-themebuilder": "22.1.7"
   }
 }
