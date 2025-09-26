@@ -8,19 +8,19 @@
 
 This repository stores the code examples of the DataGrid component for the [Getting Started with DataGrid](https://js.devexpress.com/Documentation/Guide/UI_Components/DataGrid/Getting_Started_with_DataGrid/) tutorial. This tutorial shows how to add the DataGrid to a page, bind it to data, and configure its core features.
 
-<div align="center"><img src="./datagrid.png" /></div>
+<div align="center"><img src="images/datagrid.png" /></div>
 
 ## Files to Review
 
 - **Angular**
-    - [app.component.html](angular/src/app/app.component.html)
-    - [app.component.ts](angular/src/app/app.component.ts)
+    - [app.component.html](Angular/src/app/app.component.html)
+    - [app.component.ts](Angular/src/app/app.component.ts)
 - **jQuery**
-    - [index.js](jquery/src/index.js)
+    - [index.js](jQuery/src/index.js)
 - **React**
-    - [App.js](react/src/App.js)
+    - [App.js](React/src/App.js)
 - **Vue**
-    - [App.vue](vue/src/App.vue)
+    - [App.vue](Vue/src/App.vue)
 
 ## Documentation
 
