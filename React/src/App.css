@@ -1,4 +1,25 @@
-.main {
-  margin: 50px;
-  width: 90vw;
+.employee-photo {
+  height: 140px;
+  float: left;
+  padding: 0 20px 20px 0;
+}
+
+.employee-notes {
+  text-align: justify;
+  white-space: normal;
+}
+
+#data-grid {
+  height: 500px;
+}
+
+.app {
+  width: 900px;
+  position: relative;
+}
+
+#selected-employee {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 }

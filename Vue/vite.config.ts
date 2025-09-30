@@ -11,6 +11,10 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       'devextreme/ui': 'devextreme/esm/ui',
+      'devextreme-exceljs-fork': fileURLToPath(new URL('./node_modules/devextreme-exceljs-fork/dist/dx-exceljs-fork.min.js', import.meta.url)),
     },
+  },
+  define: {
+    global: 'globalThis',
   },
 });
