@@ -3,7 +3,13 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": ["node"],
+    "paths": {
+      "devextreme-exceljs-fork": [
+        "./node_modules/devextreme-exceljs-fork/index.d.ts",
+        "./node_modules/devextreme-exceljs-fork/dist/dx-exceljs-fork.min.js"
+      ]
+    }
   },
   "files": [
     "src/main.ts"
