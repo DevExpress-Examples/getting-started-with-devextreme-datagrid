@@ -1,3 +1,14 @@
-*.js
-*.css
+# Images and binary files
+src/images/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+
+# GitHub workflows
 .github
+
+# Dependencies
+node_modules/
