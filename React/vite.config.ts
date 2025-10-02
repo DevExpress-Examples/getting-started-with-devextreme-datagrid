@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [React()],
   resolve: {
     alias: {
-      'devextreme-exceljs-fork': path.resolve(__dirname, 'node_modules/devextreme-exceljs-fork/dist/dx-exceljs-fork.min.js'),
+      'dx-exceljs-fork': path.resolve(__dirname, 'node_modules/dx-exceljs-fork/dist/dx-exceljs-fork.min.js'),
     },
   },
   define: {
