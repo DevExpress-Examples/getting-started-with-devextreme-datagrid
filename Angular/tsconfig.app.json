@@ -6,8 +6,12 @@
     "types": ["node"],
     "paths": {
       "devextreme-exceljs-fork": [
-        "./node_modules/devextreme-exceljs-fork/index.d.ts",
-        "./node_modules/devextreme-exceljs-fork/dist/dx-exceljs-fork.min.js"
+        "./node_modules/dx-exceljs-fork/index.d.ts",
+        "./node_modules/dx-exceljs-fork/dist/dx-exceljs-fork.min.js"
+      ],
+      "dx-exceljs-fork": [
+        "./node_modules/dx-exceljs-fork/index.d.ts",
+        "./node_modules/dx-exceljs-fork/dist/dx-exceljs-fork.min.js"
       ]
     }
   },
