@@ -44,7 +44,7 @@
     "constants-browserify": "^1.0.0",
     "crypto-browserify": "^3.12.1",
     "eslint": "^8.39.0",
-    "eslint-config-devextreme": "^1.1.4",
+    "eslint-config-devextreme": "1.1.4",
     "eslint-plugin-no-only-tests": "^3.1.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
