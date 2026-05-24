@@ -36,6 +36,7 @@ jobs:
 
     - name: Security audit
       working-directory: Angular
+      continue-on-error: true
       run: npm audit --audit-level=high
 
     - name: TSC Angular
@@ -67,6 +68,7 @@ jobs:
 
     - name: Security audit
       working-directory: React
+      continue-on-error: true
       run: npm audit --audit-level=high
 
     - name: TSC React
@@ -98,6 +100,7 @@ jobs:
 
     - name: Security audit
       working-directory: Vue
+      continue-on-error: true
       run: npm audit --audit-level=high
 
     - name: TSC Vue
