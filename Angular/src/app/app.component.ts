@@ -7,8 +7,11 @@ import { exportDataGrid } from 'devextreme/excel_exporter';
 import { DxDataGridTypes } from 'devextreme-angular/ui/data-grid';
 import { Employee, EmployeesService } from './employees.service';
 
+import { DxDataGridModule } from 'devextreme-angular';
+
 @Component({
   selector: 'app-root',
+  imports: [DxDataGridModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
