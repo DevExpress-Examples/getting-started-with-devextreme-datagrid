@@ -1,6 +1,7 @@
 {
   "name": "angular-test",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint-html": "prettier --check .",
-    "lint-ts": "eslint --ext .ts .",
+    "lint-ts": "eslint .",
     "lint-css": "stylelint src/**/*.{css,scss} --allow-empty-input",
     "lint": "npm-run-all -p -c lint-ts lint-css lint-html"
   },
@@ -43,8 +44,8 @@
     "browserify-zlib": "^0.2.0",
     "constants-browserify": "^1.0.0",
     "crypto-browserify": "^3.12.1",
-    "eslint": "^8.39.0",
-    "eslint-config-devextreme": "1.1.4",
+    "eslint": "9.18.0",
+    "eslint-config-devextreme": "1.1.10",
     "eslint-plugin-no-only-tests": "^3.1.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
@@ -62,6 +63,9 @@
     "stylelint-config-standard-scss": "^9.0.0",
     "stylelint-scss": "^5.0.0",
     "typescript": "~5.4.5",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "typescript-eslint": "^8.49.0"
   }
 }

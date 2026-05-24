@@ -8,10 +8,12 @@ import { DxDataGridTypes } from 'devextreme-angular/ui/data-grid';
 import { Employee, EmployeesService } from './employees.service';
 
 import { DxDataGridModule } from 'devextreme-angular';
+import { DxButtonModule } from 'devextreme-angular/ui/button';
 
 @Component({
+  standalone: true,
   selector: 'app-root',
-  imports: [DxDataGridModule],
+  imports: [DxDataGridModule, DxButtonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
