@@ -4,6 +4,7 @@
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,
+    "strictFunctionTypes": false,
     "baseUrl": ".",
     // Workaround for https://github.com/vuejs/tsconfig/issues/6
     "verbatimModuleSyntax": true,
