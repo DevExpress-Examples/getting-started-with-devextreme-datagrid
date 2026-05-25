@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Workbook } from 'dx-exceljs-fork';
+import { Workbook } from 'devextreme-exceljs-fork';
 import { saveAs } from 'file-saver';
 import { exportDataGrid as exportDataGridToPdf } from 'devextreme/pdf_exporter';
 import { jsPDF } from 'jspdf';
