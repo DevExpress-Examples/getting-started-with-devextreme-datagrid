@@ -11,11 +11,10 @@ import { DxDataGridModule } from 'devextreme-angular';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 
 @Component({
-  standalone: true,
-  selector: 'app-root',
-  imports: [DxDataGridModule, DxButtonModule],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+    selector: 'app-root',
+    imports: [DxDataGridModule, DxButtonModule],
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   employees: Employee[] = [];
