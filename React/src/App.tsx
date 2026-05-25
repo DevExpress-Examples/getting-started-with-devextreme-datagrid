@@ -19,7 +19,7 @@ import DataGrid, {
   type DataGridTypes,
 } from 'devextreme-react/data-grid';
 import { Button } from 'devextreme-react/button';
-import { Workbook } from 'dx-exceljs-fork';
+import { Workbook } from 'devextreme-exceljs-fork';
 import { saveAs } from 'file-saver';
 import { exportDataGrid } from 'devextreme-react/common/export/excel';
 import { jsPDF } from 'jspdf';

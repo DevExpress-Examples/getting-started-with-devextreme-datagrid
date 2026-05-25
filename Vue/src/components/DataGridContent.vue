@@ -135,7 +135,7 @@ import {
 } from 'devextreme-vue/data-grid';
 import { DxButton } from 'devextreme-vue/button';
 import employeesService, { type Employee } from '../employees.service';
-import { Workbook } from 'dx-exceljs-fork';
+import { Workbook } from 'devextreme-exceljs-fork';
 import { saveAs } from 'file-saver';
 import { exportDataGrid } from 'devextreme/excel_exporter';
 import { jsPDF } from 'jspdf';

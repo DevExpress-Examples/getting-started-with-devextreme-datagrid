@@ -29,7 +29,7 @@
     "browser-sync": "^3.0.2",
     "devextreme": "25.2.3",
     "devextreme-dist": "25.2.3",
-    "dx-exceljs-fork": "npm:devextreme-exceljs-fork@4.4.2",
+    "devextreme-exceljs-fork": "4.4.9",
     "file-saver": "^2.0.5",
     "jspdf": "^2.5.1",
     "jquery": "^3.7.1"
