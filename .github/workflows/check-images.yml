@@ -32,7 +32,7 @@ jobs:
           for img in $images; do
             found=false
             while IFS= read -r -d '' readme_file; do
-              if grep -q "!\[.*\](.*$img.*)" "$readme_file"; then
+              if grep -q "!\[.*\](.*$img.*)" "$readme_file" || grep -q "src=.*$img" "$readme_file"; then
                 found=true
                 break
               fi
