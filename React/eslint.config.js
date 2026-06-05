@@ -30,6 +30,7 @@ export default [
     rules: {
       'react/react-in-jsx-scope': 'off',
       'import/prefer-default-export': 'off',
+      'import/extensions': 'off',
       'import/no-extraneous-dependencies': ['error', {
         devDependencies: [
           '**/vitest.config.ts',
