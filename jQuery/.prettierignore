@@ -12,3 +12,4 @@ src/images/
 
 # Dependencies
 node_modules/
+src/devextreme-license.ts
