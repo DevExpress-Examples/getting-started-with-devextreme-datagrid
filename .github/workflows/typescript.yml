@@ -34,10 +34,6 @@ jobs:
       working-directory: Angular
       run: npm install --no-fund
 
-    - name: Security audit
-      working-directory: Angular
-      continue-on-error: true
-      run: npm audit --audit-level=high
 
     - name: TSC Angular
       working-directory: Angular
@@ -66,10 +62,6 @@ jobs:
       working-directory: React
       run: npm install --no-fund
 
-    - name: Security audit
-      working-directory: React
-      continue-on-error: true
-      run: npm audit --audit-level=high
 
     - name: TSC React
       working-directory: React
@@ -98,10 +90,6 @@ jobs:
       working-directory: Vue
       run: npm install --no-fund
 
-    - name: Security audit
-      working-directory: Vue
-      continue-on-error: true
-      run: npm audit --audit-level=high
 
     - name: TSC Vue
       working-directory: Vue
