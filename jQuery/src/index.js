@@ -146,7 +146,7 @@ $(() => {
             });
           e.cancel = true;
         } else if (e.format === 'pdf') {
-          const doc = new jsPDF(); // eslint-disable-line new-cap
+          const doc = new jsPDF();
           DevExpress.pdfExporter
             .exportDataGrid({
               jsPDFDocument: doc,
