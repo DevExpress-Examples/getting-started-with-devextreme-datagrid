@@ -15,9 +15,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "devextreme": "25.2.3",
+    "devextreme": "26.1.2-beta",
     "devextreme-exceljs-fork": "4.4.9",
-    "devextreme-react": "25.2.3",
+    "devextreme-react": "26.1.2-beta",
     "file-saver": "^2.0.5",
     "jspdf": "^2.5.1",
     "react": "^18.2.0",
