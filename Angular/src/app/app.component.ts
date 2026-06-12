@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Workbook } from 'devextreme-exceljs-fork';
 import { saveAs } from 'file-saver';
 import { exportDataGrid as exportDataGridToPdf } from 'devextreme/pdf_exporter';
@@ -14,6 +14,7 @@ import { DxButtonModule } from 'devextreme-angular/ui/button';
     selector: 'app-root',
     imports: [DxDataGridModule, DxButtonModule],
     templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
