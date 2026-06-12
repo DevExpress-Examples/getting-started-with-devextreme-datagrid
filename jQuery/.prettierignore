@@ -1,15 +1,5 @@
-# Images and binary files
-src/images/
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.ico
-
-# GitHub workflows
+*.js
+*.css
 .github
-
-# Dependencies
-node_modules/
 src/devextreme-license.ts
+src/devextreme-license.js
