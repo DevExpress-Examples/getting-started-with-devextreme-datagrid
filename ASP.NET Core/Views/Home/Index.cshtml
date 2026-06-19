@@ -1,82 +1,85 @@
 @using ASP_NET_Core.Models
 @using DevExtreme.AspNet.Mvc.Factories
 
-@(Html.DevExtreme().DataGrid<Employee>()
-    .ID("grid-container")
-    .DataSource(d => d
-        .Mvc().Controller("EmployeeData")
-        .LoadAction("Get")
-        .Key("EmployeeID")
-    )
-    .AllowColumnResizing(true)
-    .ColumnAutoWidth(true)
-    .ColumnFixing(c => c.Enabled(true))
-    .AllowColumnReordering(true)
-    .ColumnChooser(c => c.Enabled(true))
-    .Columns(columns => {
-        columns.AddFor(m => m.FullName)
-            .Fixed(true)
-            .ValidationRules(v => v.AddRequired());
-        columns.AddFor(m => m.Position)
-            .ValidationRules(v => v.AddRequired());
-        columns.AddFor(m => m.BirthDate)
-            .DataType(GridColumnDataType.Date)
-            .Width(100)
-            .ValidationRules(v => v.AddRequired());
-        columns.AddFor(m => m.HireDate)
-            .DataType(GridColumnDataType.Date)
-            .Width(100)
-            .ValidationRules(v => v.AddRequired());
-        columns.AddFor(m => m.Country)
-            .GroupIndex(0)
-            .SortOrder(SortOrder.Asc)
-            .ValidationRules(v => v.AddRequired());
-        columns.AddFor(m => m.Address);
-        columns.AddFor(m => m.HomePhone);
-        columns.AddFor(m => m.PostalCode).Visible(false);
-    })
-    .FilterRow(f => f.Visible(true))
-    .SearchPanel(s => s.Visible(true))
-    .GroupPanel(p => p.Visible(true))
-    .Selection(s => s.Mode(SelectionMode.Single))
-    .OnSelectionChanged("handleSelectionChanged")
-    .Summary(s => s
-        .GroupItems(groupItems => {
-            groupItems.Add().SummaryType(SummaryType.Count);
+<div id="app-container">
+    @(Html.DevExtreme().DataGrid<Employee>()
+        .ID("grid-container")
+        .DataSource(d => d
+            .Mvc().Controller("EmployeeData")
+            .LoadAction("Get")
+            .Key("EmployeeID")
+        )
+        .AllowColumnResizing(true)
+        .ColumnAutoWidth(true)
+        .ColumnFixing(c => c.Enabled(true))
+        .AllowColumnReordering(true)
+        .ColumnChooser(c => c.Enabled(true))
+        .Columns(columns => {
+            columns.AddFor(m => m.FullName)
+                .Fixed(true)
+                .ValidationRules(v => v.AddRequired());
+            columns.AddFor(m => m.Position)
+                .ValidationRules(v => v.AddRequired());
+            columns.AddFor(m => m.BirthDate)
+                .DataType(GridColumnDataType.Date)
+                .Width(100)
+                .ValidationRules(v => v.AddRequired());
+            columns.AddFor(m => m.HireDate)
+                .DataType(GridColumnDataType.Date)
+                .Width(100)
+                .ValidationRules(v => v.AddRequired());
+            columns.AddFor(m => m.Country)
+                .GroupIndex(0)
+                .SortOrder(SortOrder.Asc)
+                .ValidationRules(v => v.AddRequired());
+            columns.AddFor(m => m.Address);
+            columns.AddFor(m => m.HomePhone);
+            columns.AddFor(m => m.PostalCode).Visible(false);
         })
+        .FilterRow(f => f.Visible(true))
+        .SearchPanel(s => s.Visible(true))
+        .GroupPanel(p => p.Visible(true))
+        .Selection(s => s.Mode(SelectionMode.Single))
+        .OnSelectionChanged("handleSelectionChanged")
+        .Summary(s => s
+            .GroupItems(groupItems => {
+                groupItems.Add().SummaryType(SummaryType.Count);
+            })
+        )
+        .Editing(e => e
+            .Mode(GridEditMode.Popup)
+            .AllowAdding(true)
+            .AllowDeleting(true)
+            .AllowUpdating(true)
+        )
+        @* .Grouping(g => g.AutoExpandAll()) *@
+        .Toolbar(t => t.Items(items => {
+            items.Add().Name(DataGridToolbarItem.GroupPanel);
+            items.Add()
+                .Location(ToolbarItemLocation.After)
+                .Widget(w => w.Button()
+                    .Text("Collapse All")
+                    .Width(136)
+                    .OnClick("handleCollapseAllButtonClick")
+            );
+            items.Add().Name(DataGridToolbarItem.AddRowButton).ShowText(ToolbarItemShowTextMode.Always);
+            items.Add().Name(DataGridToolbarItem.ExportButton);
+            items.Add().Name(DataGridToolbarItem.ColumnChooserButton);
+            items.Add().Name(DataGridToolbarItem.SearchPanel);
+        }))
+        .MasterDetail(m => m
+            .Enabled(true)
+            .Template(new JS ("masterDetailTemplate"))
+        )
+        .Export(e => e
+            .Enabled(true)
+            .Formats(new[] { DataGridExportFormat.Pdf, DataGridExportFormat.Xlsx })
+        )
+        .OnExporting("handleDataGridExporting")
+        .RemoteOperations(true)
     )
-    .Editing(e => e
-        .Mode(GridEditMode.Popup)
-        .AllowAdding(true)
-        .AllowDeleting(true)
-        .AllowUpdating(true)
-    )
-    @* .Grouping(g => g.AutoExpandAll()) *@
-    .Toolbar(t => t.Items(items => {
-        items.Add().Name(DataGridToolbarItem.GroupPanel);
-        items.Add()
-            .Location(ToolbarItemLocation.After)
-            .Widget(w => w.Button()
-                .Text("Collapse All")
-                .Width(136)
-                .OnClick("handleCollapseAllButtonClick")
-        );
-        items.Add().Name(DataGridToolbarItem.AddRowButton).ShowText(ToolbarItemShowTextMode.Always);
-        items.Add().Name(DataGridToolbarItem.ExportButton);
-        items.Add().Name(DataGridToolbarItem.ColumnChooserButton);
-        items.Add().Name(DataGridToolbarItem.SearchPanel);
-    }))
-    .MasterDetail(m => m
-        .Enabled(true)
-        .Template(new JS ("masterDetailTemplate"))
-    )
-    .Export(e => e
-        .Enabled(true)
-        .Formats(new[] { DataGridExportFormat.Pdf, DataGridExportFormat.Xlsx })
-    )
-    .OnExporting("handleDataGridExporting")
-    .RemoteOperations(true)
-)
+    <p id="selected-employee"></p>
+</div>
 
 <script>
     function handleSelectionChanged(e) {

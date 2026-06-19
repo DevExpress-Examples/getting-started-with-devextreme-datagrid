@@ -37,7 +37,7 @@ let defaultScripts = [
 let dxtStyles = [
     "node_modules/bootstrap/dist/css/bootstrap.css",
     "node_modules/devextreme-dist/css/dx.common.css",
-    "node_modules/devextreme-dist/css/dx.material.blue.dark.css"],
+    "node_modules/devextreme-dist/css/dx.fluent.blue.light.css"],
     ganttStyles = ["node_modules/devexpress-gantt/dist/dx-gantt.min.css"],
     diagramStyles = ["node_modules/devexpress-diagram/dist/dx-diagram.min.css"];
 

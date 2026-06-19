@@ -141,6 +141,8 @@ import { exportDataGrid } from 'devextreme/excel_exporter';
 import { jsPDF } from 'jspdf';
 import { exportDataGrid as exportDataGridToPdf } from 'devextreme/pdf_exporter';
 
+import 'devextreme/dist/css/dx.fluent.blue.light.css';
+
 // Reactive data
 const employees = ref<Employee[]>(employeesService.getEmployees());
 const selectedEmployee = ref<Employee | undefined>();
@@ -198,7 +200,6 @@ function exportGrid(e: any): void {
 }
 
 #app-container {
-  width: 900px;
   position: relative;
 }
 

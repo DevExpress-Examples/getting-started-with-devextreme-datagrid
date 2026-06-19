@@ -24,7 +24,7 @@ import { saveAs } from 'file-saver';
 import { exportDataGrid } from 'devextreme-react/common/export/excel';
 import { jsPDF } from 'jspdf';
 import { exportDataGrid as exportDataGridToPdf } from 'devextreme/pdf_exporter';
-import 'devextreme/dist/css/dx.light.css';
+import 'devextreme/dist/css/dx.fluent.blue.light.css';
 import './App.css';
 import { employees, type Employee } from './employees';
 
@@ -106,7 +106,10 @@ function App(): JSX.Element {
         onSelectionChanged={selectEmployee}
         onExporting={onExporting}>
         <ColumnChooser enabled={true} />
-        <Column dataField="FullName">
+        <Column 
+          dataField="FullName"
+          fixed={true}
+        >
           <RequiredRule />
         </Column>
         <Column dataField="Position">

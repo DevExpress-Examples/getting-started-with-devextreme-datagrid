@@ -1,9 +1,9 @@
 .demo-container {
-    margin: 50px;
-    width: 90vw;
+  margin: 50px;
 }
+
 body {
-    margin: 8px;
+  margin: 8px;
 }
 
 .employee-photo {
@@ -21,8 +21,13 @@ body {
   height: 500px;
 }
 
+#app-container {
+  position: relative;
+}
+
 #selected-employee {
   position: absolute;
+  margin-top: 16px;
   left: 50%;
   transform: translate(-50%, 0);
 }
