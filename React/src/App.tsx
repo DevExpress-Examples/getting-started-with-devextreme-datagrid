@@ -106,7 +106,7 @@ function App(): JSX.Element {
         onSelectionChanged={selectEmployee}
         onExporting={onExporting}>
         <ColumnChooser enabled={true} />
-        <Column 
+        <Column
           dataField="FullName"
           fixed={true}
         >
