@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <SpaRoot>$(MSBuildProjectDirectory)\</SpaRoot>
   </PropertyGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="BeforeBuild" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
@@ -14,7 +15,7 @@
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
   </Target>
   <Target Name="RunGulp" BeforeTargets="BeforeBuild" Condition=" '$(Configuration)' == 'Debug' And Exists('$(SpaRoot)node_modules') ">
-    <Exec WorkingDirectory="$(ProjectDir)" Command="node_modules\.bin\gulp add-resources" ContinueOnError="false">
+    <Exec WorkingDirectory="$(ProjectDir)" Command="gulp add-resources" ContinueOnError="false">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
   </Target>
