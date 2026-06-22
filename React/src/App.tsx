@@ -96,7 +96,7 @@ function App(): JSX.Element {
       setSelectedEmployee(employee);
     }).catch(() => {});
   }, []);
-  
+
   return (
     <div className="app">
       <DataGrid
@@ -141,7 +141,7 @@ function App(): JSX.Element {
         <Column dataField="HomePhone" />
         <Column dataField="PostalCode" visible={false} />
         <ColumnFixing enabled={true} />
-        <Sorting mode='multiple'/>
+        <Sorting mode='multiple' />
         <FilterRow visible={true} />
         <SearchPanel visible={true} />
         <GroupPanel visible={true} />
