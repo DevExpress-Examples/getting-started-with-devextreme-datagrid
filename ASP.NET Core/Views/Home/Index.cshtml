@@ -52,7 +52,6 @@
             .AllowDeleting(true)
             .AllowUpdating(true)
         )
-        @* .Grouping(g => g.AutoExpandAll()) *@
         .Toolbar(t => t.Items(items => {
             items.Add().Name(DataGridToolbarItem.GroupPanel);
             items.Add()

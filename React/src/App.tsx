@@ -94,7 +94,9 @@ function App(): JSX.Element {
     e.component.byKey(e.currentSelectedRowKeys[0]).then((employee: Employee) => {
       setSelectedEmployee(employee);
     }).catch(() => {});
-  }, []); return (
+  }, []);
+  
+  return (
     <div className="app">
       <DataGrid
         id="data-grid"
