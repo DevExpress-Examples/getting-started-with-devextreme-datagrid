@@ -49,6 +49,7 @@
       />
       <DxColumnChooser :enabled="true"/>
       <DxColumnFixing :enabled="true"/>
+      <DxSorting mode="multiple"/>
       <DxFilterRow :visible="true"/>
       <DxSearchPanel :visible="true"/>
       <DxGroupPanel :visible="true"/>
@@ -131,7 +132,9 @@ import {
   DxToolbar,
   DxItem,
   DxMasterDetail,
-  DxExport
+  DxExport,
+  DxSorting,
+  type DxDataGridTypes
 } from 'devextreme-vue/data-grid';
 import { DxButton } from 'devextreme-vue/button';
 import { getEmployees, type Employee } from '../employees.service';

@@ -4,6 +4,7 @@ import DataGrid, {
   ColumnFixing,
   Column,
   RequiredRule,
+  Sorting,
   FilterRow,
   SearchPanel,
   GroupPanel,
@@ -140,6 +141,7 @@ function App(): JSX.Element {
         <Column dataField="HomePhone" />
         <Column dataField="PostalCode" visible={false} />
         <ColumnFixing enabled={true} />
+        <Sorting mode='multiple'/>
         <FilterRow visible={true} />
         <SearchPanel visible={true} />
         <GroupPanel visible={true} />

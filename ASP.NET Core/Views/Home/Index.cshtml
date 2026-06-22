@@ -36,6 +36,7 @@
             columns.AddFor(m => m.HomePhone);
             columns.AddFor(m => m.PostalCode).Visible(false);
         })
+        .Sorting(s => s.Mode(GridSortingMode.Multiple))
         .FilterRow(f => f.Visible(true))
         .SearchPanel(s => s.Visible(true))
         .GroupPanel(p => p.Visible(true))
