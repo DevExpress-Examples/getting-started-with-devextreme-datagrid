@@ -160,7 +160,7 @@ function selectEmployee(e: DxDataGridTypes.SelectionChangedEvent): void {
   });
 }
 
-function exportGrid(e: any): void {
+function exportGrid(e: DxDataGridTypes.ExportingEvent): void {
   if (e.format === 'xlsx') {
     const workbook = new Workbook();
     const worksheet = workbook.addWorksheet('Main sheet');
