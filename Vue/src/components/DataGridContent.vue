@@ -172,9 +172,7 @@ function exportGrid(e: DxDataGridTypes.ExportingEvent): void {
         saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'DataGrid.xlsx');
       });
     });
-    e.cancel = true;
-  }
-  else if (e.format === 'pdf') {
+  } else if (e.format === 'pdf') {
     const doc = new jsPDF();
     exportDataGridToPdf({
       jsPDFDocument: doc,
