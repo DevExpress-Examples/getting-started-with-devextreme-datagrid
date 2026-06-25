@@ -68,6 +68,7 @@ $(() => {
           visible: false,
         },
       ],
+      sorting: { mode: 'multiple' },
       filterRow: { visible: true },
       searchPanel: { visible: true },
       groupPanel: { visible: true },
@@ -144,7 +145,6 @@ $(() => {
                 saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'DataGrid.xlsx');
               });
             });
-          e.cancel = true;
         } else if (e.format === 'pdf') {
           const doc = new jsPDF();
           DevExpress.pdfExporter

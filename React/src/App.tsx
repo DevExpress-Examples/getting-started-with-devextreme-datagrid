@@ -4,6 +4,7 @@ import DataGrid, {
   ColumnFixing,
   Column,
   RequiredRule,
+  Sorting,
   FilterRow,
   SearchPanel,
   GroupPanel,
@@ -24,7 +25,7 @@ import { saveAs } from 'file-saver';
 import { exportDataGrid } from 'devextreme-react/common/export/excel';
 import { jsPDF } from 'jspdf';
 import { exportDataGrid as exportDataGridToPdf } from 'devextreme/pdf_exporter';
-import 'devextreme/dist/css/dx.light.css';
+import 'devextreme/dist/css/dx.fluent.blue.light.css';
 import './App.css';
 import { employees, type Employee } from './employees';
 
@@ -75,7 +76,6 @@ function onExporting(e: DataGridTypes.ExportingEvent): void {
         saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'DataGrid.xlsx');
       }).catch(() => {});
     }).catch(() => {});
-    e.cancel = true;
   } else if (e.format === 'pdf') {
     const doc = new jsPDF();
     exportDataGridToPdf({
@@ -94,7 +94,9 @@ function App(): JSX.Element {
     e.component.byKey(e.currentSelectedRowKeys[0]).then((employee: Employee) => {
       setSelectedEmployee(employee);
     }).catch(() => {});
-  }, []); return (
+  }, []);
+
+  return (
     <div className="app">
       <DataGrid
         id="data-grid"
@@ -106,7 +108,10 @@ function App(): JSX.Element {
         onSelectionChanged={selectEmployee}
         onExporting={onExporting}>
         <ColumnChooser enabled={true} />
-        <Column dataField="FullName">
+        <Column
+          dataField="FullName"
+          fixed={true}
+        >
           <RequiredRule />
         </Column>
         <Column dataField="Position">
@@ -135,6 +140,7 @@ function App(): JSX.Element {
         <Column dataField="HomePhone" />
         <Column dataField="PostalCode" visible={false} />
         <ColumnFixing enabled={true} />
+        <Sorting mode='multiple' />
         <FilterRow visible={true} />
         <SearchPanel visible={true} />
         <GroupPanel visible={true} />

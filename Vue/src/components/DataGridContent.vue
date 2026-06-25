@@ -49,6 +49,7 @@
       />
       <DxColumnChooser :enabled="true"/>
       <DxColumnFixing :enabled="true"/>
+      <DxSorting mode="multiple"/>
       <DxFilterRow :visible="true"/>
       <DxSearchPanel :visible="true"/>
       <DxGroupPanel :visible="true"/>
@@ -131,31 +132,35 @@ import {
   DxToolbar,
   DxItem,
   DxMasterDetail,
-  DxExport
+  DxExport,
+  DxSorting,
+  type DxDataGridTypes
 } from 'devextreme-vue/data-grid';
 import { DxButton } from 'devextreme-vue/button';
-import employeesService, { type Employee } from '../employees.service';
+import { getEmployees, type Employee } from '../employees.service';
 import { Workbook } from 'devextreme-exceljs-fork';
 import { saveAs } from 'file-saver';
 import { exportDataGrid } from 'devextreme/excel_exporter';
 import { jsPDF } from 'jspdf';
 import { exportDataGrid as exportDataGridToPdf } from 'devextreme/pdf_exporter';
 
+import 'devextreme/dist/css/dx.fluent.blue.light.css';
+
 // Reactive data
-const employees = ref<Employee[]>(employeesService.getEmployees());
+const employees = ref<Employee[]>(getEmployees());
 const selectedEmployee = ref<Employee | undefined>();
 const expanded = ref<boolean>(true);
 
 // Methods
-function selectEmployee(e: any): void {
-  e.component.byKey(e.currentSelectedRowKeys[0]).done((employee: Employee) => {
+function selectEmployee(e: DxDataGridTypes.SelectionChangedEvent): void {
+  e.component.byKey(e.currentSelectedRowKeys[0]).then((employee: Employee) => {
     if (employee) {
       selectedEmployee.value = employee;
     }
   });
 }
 
-function exportGrid(e: any): void {
+function exportGrid(e: DxDataGridTypes.ExportingEvent): void {
   if (e.format === 'xlsx') {
     const workbook = new Workbook();
     const worksheet = workbook.addWorksheet('Main sheet');
@@ -167,9 +172,7 @@ function exportGrid(e: any): void {
         saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'DataGrid.xlsx');
       });
     });
-    e.cancel = true;
-  }
-  else if (e.format === 'pdf') {
+  } else if (e.format === 'pdf') {
     const doc = new jsPDF();
     exportDataGridToPdf({
       jsPDFDocument: doc,
@@ -198,7 +201,6 @@ function exportGrid(e: any): void {
 }
 
 #app-container {
-  width: 900px;
   position: relative;
 }
 

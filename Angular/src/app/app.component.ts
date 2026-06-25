@@ -48,7 +48,6 @@ export class AppComponent {
           saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'DataGrid.xlsx');
         }).catch(() => { });
       }).catch(() => { });
-      e.cancel = true;
     } else if (e.format === 'pdf') {
       const doc = new jsPDF();
       exportDataGridToPdf({
