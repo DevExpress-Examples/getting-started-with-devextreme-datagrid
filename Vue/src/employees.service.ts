@@ -173,8 +173,6 @@ const employees: Employee[] = [{
   ReportsTo: 5,
 }];
 
-export default {
-  getEmployees(): Employee[] {
-    return employees;
-  },
-};
+export function getEmployees(): Employee[] {
+  return employees;
+}

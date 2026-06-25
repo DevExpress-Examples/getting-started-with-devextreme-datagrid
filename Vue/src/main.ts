@@ -1,5 +1,3 @@
-import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.light.css';
 import { createApp } from 'vue';
 import config from 'devextreme/core/config';
 import App from './App.vue';
