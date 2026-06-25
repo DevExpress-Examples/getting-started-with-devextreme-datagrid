@@ -1,3 +1,11 @@
+.demo-container {
+  margin: 50px;
+}
+
+body {
+  margin: 8px;
+}
+
 .employee-photo {
   height: 140px;
   float: left;
@@ -9,16 +17,17 @@
   white-space: normal;
 }
 
-#data-grid {
+#grid-container {
   height: 500px;
 }
 
-.app {
+#app-container {
   position: relative;
 }
 
 #selected-employee {
   position: absolute;
+  margin-top: 16px;
   left: 50%;
   transform: translate(-50%, 0);
 }
